@@ -1,8 +1,10 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
-
 import { axioswithAuth } from '../../utils/axiosAuth';
+
+import Friend from './Friend';
 
 
 class FriendsDashboard extends React.Component{
@@ -24,7 +26,7 @@ class FriendsDashboard extends React.Component{
             isLoading: !this.state.isLoading
         })
 
-        axioswithAuth().get('http://localhost:5000/api/friends')
+        axioswithAuth().get('api/friends')
         .then( res => {
             this.setState({
                 ...this.state,
@@ -46,7 +48,13 @@ class FriendsDashboard extends React.Component{
                 }
                 {this.state.data.map(friend  => (
                     <p key={friend.id}>
-                        {friend.name}
+                        <Link to={{
+                            pathname: `/dashboard/${friend.id}/friend`,
+                            state: {data: friend}
+                        }}>
+                            {friend.name}
+                        </Link>
+
                     </p>
                 ))}
             </div>
