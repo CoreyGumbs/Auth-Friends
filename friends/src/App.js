@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <PrivateRoute exact path ='/dashboard' component={FriendsDashboard} />
           <Route exact path="/:id/friend" component={Friend}/>
-          <Route exact path="/dashboard/add-friend" component={AddFriend}/>
+          <Route exact path="/add-friend" component={AddFriend}/>
           <Route path='/logout' component={Logout} />
           <Route path = '/login' component={Login} />
           <Route  component={Login} />

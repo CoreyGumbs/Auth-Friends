@@ -42,7 +42,7 @@ class FriendsDashboard extends React.Component{
             <div className="FriendsDashboard-container">
                 <div className="add-friend-btn">
                     <Logout />
-                    <Link to='/dashboard/add-friend'>
+                    <Link to='/add-friend'>
                         <button>
                             Add Friend
                         </button>
