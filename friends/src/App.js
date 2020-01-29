@@ -4,18 +4,15 @@ import './App.css';
 
 import Login from './Components/Auth/Login';
 import FriendsDashboard from './Components/Friends/FriendsDashboard';
-
-
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+ 
 function App() {
   return (
     <div className="App">
-
-
         <Switch>
-          <Route exact path ='/dashboard' component={FriendsDashboard} />
+          <PrivateRoute exact path ='/dashboard' component={FriendsDashboard} />
           <Route path = '/login' component={Login} />
           <Route  component={Login} />
-        
         </Switch>
     </div>
   );
