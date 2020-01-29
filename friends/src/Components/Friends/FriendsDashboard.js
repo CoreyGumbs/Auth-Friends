@@ -5,6 +5,7 @@ import Loader from 'react-loader-spinner';
 import { axioswithAuth } from '../../utils/axiosAuth';
 
 import Friend from './Friend';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 
 class FriendsDashboard extends React.Component{
@@ -49,7 +50,7 @@ class FriendsDashboard extends React.Component{
                 {this.state.data.map(friend  => (
                     <p key={friend.id}>
                         <Link to={{
-                            pathname: `/dashboard/${friend.id}/friend`,
+                            pathname: `/${friend.id}/friend`,
                             state: {data: friend}
                         }}>
                             {friend.name}
@@ -57,6 +58,7 @@ class FriendsDashboard extends React.Component{
 
                     </p>
                 ))}
+ 
             </div>
         )
     }
