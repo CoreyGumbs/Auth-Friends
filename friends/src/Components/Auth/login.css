@@ -14,11 +14,11 @@
     align-items: center;
     align-content: center;
     background-color: #ccc;
-    border-color: #666;
-    border-radius: 20px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
 }
 
-.input-username-container, .input-password-container{
+.input-username-container, .input-password-container, .submit-btn-container{
     width: 70%;
     margin:  0 0 10px 0;
     padding: 10px 0;
@@ -27,19 +27,44 @@
     align-items: center;
 }
 
+.submit-btn-container{
+    justify-content: flex-end;
+}
+
 .login-label{
     width: 100px;
     margin: 0 10px 0 0;
     padding: 5px;
+    font-size: 1.2rem;
     text-align:right;
     color: #666;
 }
 
 .login-input{
     width: 250px;
-    padding: 5px 0;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border: 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+
 }
 
 .login-input:focus{
     outline-color: deepskyblue;
+}
+
+.submit-btn{
+    margin: 0;
+    padding: 8px 45px;
+    font-size: .8rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+
+.submit-btn:hover{
+    background-color: deepskyblue;
+    color: #333;
 }
