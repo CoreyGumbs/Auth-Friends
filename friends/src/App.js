@@ -10,7 +10,8 @@ function App() {
   return (
     <div className="App">
         <Switch>
-          <PrivateRoute exact path ='/dashboard' component={FriendsDashboard} />
+          {/* <PrivateRoute exact path ='/dashboard' component={FriendsDashboard} /> */}
+          <Route exact path ='/dashboard' component={FriendsDashboard} />
           <Route path = '/login' component={Login} />
           <Route  component={Login} />
         </Switch>

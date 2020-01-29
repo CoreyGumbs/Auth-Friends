@@ -5,38 +5,53 @@ import Loader from 'react-loader-spinner';
 import { axioswithAuth } from '../../utils/axiosAuth';
 
 
-const FriendsDashboard = () =>{
-    const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState();
-   ;
+class FriendsDashboard extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoading: false,
+            data: []
+        }
+    }
 
-    useEffect(() => {
-        setIsLoading(!isLoading);
-        axioswithAuth().get(`http://localhost:5000/api/friends`)
-        .then(res => {
-            setIsLoading(isLoading);
-            setData(res.data);
+    componentDidMount(){
+        this.fetchData()
+    }
+
+    fetchData = () => {
+        this.setState({
+            ...this.state,
+            isLoading: !this.state.isLoading
+        })
+
+        axioswithAuth().get('http://localhost:5000/api/friends')
+        .then( res => {
+            this.setState({
+                ...this.state,
+                data: res.data,
+                isLoading: !this.state.isLoading
+            })
             console.log(res);
         })
         .catch(err => console.log(err));
+    }
 
+    render(){
+        return(
+            <div className="FriendsDashboard-container">
+                
+                {this.state.isLoading && 
+                    <Loader type='TailSpin'/>
 
-    }, []);
-
-    console.log(data);
-    return (
-        <div className="friends-dashboard-container">
-           {isLoading &&
-             <Loader type="TailSpin" />
-           }
-        
-           {!isLoading && 
-            <h1>Hello</h1>
-           }
-
-           
-        </div>
-    )
+                }
+                {this.state.data.map(friend  => (
+                    <p key={friend.id}>
+                        {friend.name}
+                    </p>
+                ))}
+            </div>
+        )
+    }
 }
 
 export default FriendsDashboard;
