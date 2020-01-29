@@ -4,7 +4,6 @@ import Loader from 'react-loader-spinner';
 
 import { axioswithAuth } from '../../utils/axiosAuth';
 
-import Logout from '../Auth/Logout';
 
 class FriendsDashboard extends React.Component{
     constructor(props){
@@ -40,14 +39,7 @@ class FriendsDashboard extends React.Component{
     render(){
         return(
             <div className="FriendsDashboard-container">
-                <div className="add-friend-btn">
-                    <Logout />
-                    <Link to='/add-friend'>
-                        <button>
-                            Add Friend
-                        </button>
-                    </Link>
-                </div>
+                
                 {this.state.isLoading && 
                     <Loader type='TailSpin'/>
                 }

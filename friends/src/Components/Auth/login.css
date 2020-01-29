@@ -1,6 +1,6 @@
 .login-form-container{
     width: 50%;
-    margin: 300px auto;
+    margin: 100px auto;
     padding: 0;
 }
 
@@ -67,4 +67,13 @@
 .submit-btn:hover{
     background-color: deepskyblue;
     color: #333;
+}
+
+
+.login-img-container{
+    margin: 0 0 50px 0;
+}
+
+.login-logo{
+    width: 50%;
 }

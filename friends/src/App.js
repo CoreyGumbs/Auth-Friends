@@ -8,11 +8,17 @@ import FriendsDashboard from './Components/Friends/FriendsDashboard';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Friend from './Components/Friends/Friend';
 import AddFriend from './Components/AddFriend/AddFriend';
+import NavBar from './Components/NavBar/NavBar';
 
  
 function App() {
+  const active = localStorage.getItem('active');
+  console.log(active);
   return (
     <div className="App">
+        {active &&
+          <NavBar />
+        }
         <Switch>
           <PrivateRoute exact path ='/dashboard' component={FriendsDashboard} />
           <Route exact path="/:id/friend" component={Friend}/>

@@ -1,23 +1,33 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {Component} from 'react';
+import Loader from 'react-loader-spinner';
 
-const Logout = (props) => {
-
-    const logOut = () => {
-        if(localStorage.getItem('token')){
-            localStorage.removeItem('token');
+class Logout extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoading: true
         }
     }
-    console.log(props);
-    return(
-        <div className="logout-btn-container">
-                <Link to='/'>
-                    <button className="logout-btn" onClick={logOut}>
-                        Log Out
-                    </button>
-                </Link>
-        </div>
-    )
+    componentDidMount(){
+       
+        if(localStorage.getItem('token')){
+            localStorage.removeItem('token');
+            localStorage.setItem('active', false);
+        }
+
+        this.props.history.push('/');
+    }
+    
+    render(){
+        return(
+            <div className="logout-btn-container">
+                    {this.state.isLoading &&
+                        <Loader type='TailSpin' />
+                    }
+            </div>
+        )
+    }
+    
 }
 
 export default Logout;

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Loader from 'react-loader-spinner';
 
+import logo from '../../img/friends.png';
 import './login.css';
 
 class Login extends React.Component{
@@ -44,6 +45,7 @@ class Login extends React.Component{
         axios.post('http://localhost:5000/api/login', loginCreds)
         .then(res => {
             localStorage.setItem('token', res.data.payload);
+            localStorage.setItem('active', true);
             this.setState({
                 ...this.state,
                 isLoading: !this.state.isLoading
@@ -63,7 +65,6 @@ class Login extends React.Component{
     }
 
     render(){
-        console.log(this.state.isLoading);
         return(
            <div className="login-form-container">
                 {this.state.isLoading && 
@@ -80,8 +81,11 @@ class Login extends React.Component{
                 }
 
                 {!this.state.isLoading && !this.state.error &&
-
-                    <form className="login-form" onSubmit={this.handleLogin}>
+                    <div className="login-container">
+                        <div className="login-img-container">
+                            <img className="login-logo" src={logo} alt="friends logo"/>
+                        </div>
+                        <form className="login-form" onSubmit={this.handleLogin}>
                         <div className="input-username-container">
                             <label className="login-label" htmlFor="username">Username:</label>
                             <input className="login-input" type="text" name="username" value={this.state.credentials.username} onChange={this.handleChanges}/>
@@ -94,6 +98,9 @@ class Login extends React.Component{
                             <button className="submit-btn">Login</button>
                         </div>
                     </form>
+
+                    </div>
+                    
 
                 }
            </div>

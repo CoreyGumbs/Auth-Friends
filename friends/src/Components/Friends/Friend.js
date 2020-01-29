@@ -17,7 +17,6 @@ class Friend extends Component{
     }
 
     fetchFriend = () => {
-        
         axioswithAuth().get(`api/friends/${this.props.match.params.id}`)
         .then(res => {
             this.setState({
