@@ -48,6 +48,7 @@ class Login extends React.Component{
                 ...this.state,
                 isLoading: !this.state.isLoading
             })
+            this.props.history.push('/dashboard');
             console.log(res);
         })
         .catch(err => {
@@ -60,8 +61,6 @@ class Login extends React.Component{
         });
 
     }
-
-
 
     render(){
         console.log(this.state.isLoading);
