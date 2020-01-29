@@ -1,12 +1,10 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
 import { axioswithAuth } from '../../utils/axiosAuth';
 
-import Friend from './Friend';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
-
+import Logout from '../Auth/Logout';
 
 class FriendsDashboard extends React.Component{
     constructor(props){
@@ -42,22 +40,29 @@ class FriendsDashboard extends React.Component{
     render(){
         return(
             <div className="FriendsDashboard-container">
-                
+                <div className="add-friend-btn">
+                    <Logout />
+                    <Link to='/dashboard/add-friend'>
+                        <button>
+                            Add Friend
+                        </button>
+                    </Link>
+                </div>
                 {this.state.isLoading && 
                     <Loader type='TailSpin'/>
-
                 }
-                {this.state.data.map(friend  => (
-                    <p key={friend.id}>
-                        <Link to={{
-                            pathname: `/${friend.id}/friend`,
-                            state: {data: friend}
-                        }}>
-                            {friend.name}
-                        </Link>
 
-                    </p>
-                ))}
+                {!this.state.isLoading && 
+                    this.state.data.map(friend  => (
+                        <h3 key={friend.id}>
+                            <Link to={{
+                                pathname: `/${friend.id}/friend`,
+                            }}>
+                                {friend.name}
+                            </Link>
+                        </h3>
+                    ))
+                }
  
             </div>
         )
