@@ -1,4 +1,5 @@
 import React from 'react';
+import './login.css';
 
 class Login extends React.Component{
     constructor(props){
@@ -26,12 +27,12 @@ class Login extends React.Component{
            <div className="login-form-container">
                <form action="" className="login-form">
                    <div className="input-username-container">
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name="username" value={this.state.credentials.username} onChange={this.handleChanges}/>
+                    <label className="login-label" htmlFor="username">Username:</label>
+                    <input className="login-input" type="text" name="username" value={this.state.credentials.username} onChange={this.handleChanges}/>
                    </div>
                    <div className="input-password-container">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" value={this.state.credentials.password} onChange={this.handleChanges}/>
+                    <label className="login-label" htmlFor="password">Password:</label>
+                    <input className="login-input" type="password" name="password" value={this.state.credentials.password} onChange={this.handleChanges}/>
                    </div>
                </form>
            </div>

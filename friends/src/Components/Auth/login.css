@@ -1,0 +1,45 @@
+.login-form-container{
+    width: 50%;
+    margin: 300px auto;
+    padding: 0;
+}
+
+.login-form{
+    width: 500px;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background-color: #ccc;
+    border-color: #666;
+    border-radius: 20px;
+}
+
+.input-username-container, .input-password-container{
+    width: 70%;
+    margin:  0 0 10px 0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-label{
+    width: 100px;
+    margin: 0 10px 0 0;
+    padding: 5px;
+    text-align:right;
+    color: #666;
+}
+
+.login-input{
+    width: 250px;
+    padding: 5px 0;
+}
+
+.login-input:focus{
+    outline-color: deepskyblue;
+}
