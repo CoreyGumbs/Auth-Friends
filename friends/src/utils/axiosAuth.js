@@ -5,6 +5,7 @@ export const axioswithAuth = () => {
 
     return axios.create({
         headers: {
+            baseUrl: 'http://localhost:5000/',
             'Content-Type': 'application/json',
             'Authorization': token
         }
